@@ -30,6 +30,7 @@ public class FiveInARow {
 			square.column = Integer.parseInt(input);
 			
 			square.color = color[playerNumber];
+			
 		}		
 	}
 	
