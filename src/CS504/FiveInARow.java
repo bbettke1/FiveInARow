@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * US202
  * US202-01
- * 
+ * UA303
  * @author billb
  *
  */
