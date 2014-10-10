@@ -8,6 +8,11 @@ public class FiveInARow {
 	private static final int NUMBER_IN_A_ROW 	= 5;
 	private static final int NUMBER_OF_PLAYERS	= 2;
 	
+	/**
+	 * 
+	 * @author billb
+	 *
+	 */
 	class Square {
 		char color;
 		int row;
@@ -15,8 +20,17 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @author billb
+	 *
+	 */
 	class Player {
+		/**
+		 * 
+		 * @param playerNumber
+		 * @param square
+		 */
 		public void getMove(int playerNumber, Square square)
 		{	
 			String input;
@@ -35,9 +49,14 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @author billb
+	 *
+	 */
 	class ComputerPlayer extends Player
 	{
+
 		@Override
 		public void getMove(int player, Square square){
 			System.out.println("Computer get move");
@@ -51,6 +70,12 @@ public class FiveInARow {
 			
 		}
 		
+		/**
+		 * 
+		 * @param square
+		 * @param color
+		 * @return
+		 */
 		private boolean getWinner(Square square, char color){
 			int available =0, count=0;
 			Square found = null;
@@ -79,6 +104,12 @@ public class FiveInARow {
 			return false;
 		}
 		
+		/**
+		 * 
+		 * @param square
+		 * @param color
+		 * @return
+		 */
 		private boolean getBlock(Square square, char color){
 			int available =0, count=0;
 			Square found = null;
@@ -107,6 +138,12 @@ public class FiveInARow {
 			return false;
 		}
 		
+		/**
+		 * 
+		 * @param square
+		 * @param color
+		 * @return
+		 */
 		private boolean getAvailable(Square square, char color){
 			int available =0, count=0;
 			Square found = null;
@@ -135,6 +172,12 @@ public class FiveInARow {
 			return false;
 		}
 		
+		/**
+		 * 
+		 * @param square
+		 * @param color
+		 * @return
+		 */
 		private boolean getAny(Square square, char color){
 		
 			Square found = null;
@@ -176,6 +219,9 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 */
 	public void playGame() {
 
 		char[][]board = new char[BOARD_SIZE][BOARD_SIZE];
@@ -214,6 +260,10 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 * @param board
+	 */
 	private void initializeBoard(char[][] board) {
 		for(int i=0; i<board.length;i++) {
 			for (int j=0; j<board[i].length; j++) {
@@ -224,6 +274,9 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 */
 	public void showSolutions(){
 		for(int i=0; i<solutions.length; i++){
 			System.out.printf("solution %d ", i);
@@ -236,6 +289,9 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 */
 	public void populateSolutions(){
 		solutions = new Square[96][5];
 			int currentSolution = 0;
@@ -394,6 +450,9 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 */
 	private Player[] getPlayers()
 	{
 		Scanner scan = new Scanner(System.in);
@@ -427,7 +486,12 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param row
+	 * @param col
+	 * @return
+	 */
 	private Square createSquare(int row, int col){
 		Square s = new Square();
 		s.row = row;
@@ -439,6 +503,12 @@ public class FiveInARow {
 	
 	
 	
+	/**
+	 * 
+	 * @param solutions
+	 * @param player
+	 * @return
+	 */
 	private boolean hasWon(Square[][]solutions, int player){
 		for(int i=0; i<solutions.length; i++){
 			int count = 0;
@@ -455,13 +525,23 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param player
+	 * @param square
+	 */
 	private void getMove(int player, Square square){
 		players[player].getMove(player, square);
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param board
+	 * @param player
+	 * @param square
+	 * @return
+	 */
 	private boolean isLegal(char[][]board,int player,Square square){
 		if (board[square.row][square.column] == ' ')
 			return true;
@@ -473,7 +553,11 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param board
+	 * @param square
+	 */
 	private void makeMove(char[][]board, Square square){
 		board[square.row][square.column] = square.color;
 		freeSpaces--;
@@ -487,7 +571,10 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param board
+	 */
 	private void display(char[][]board){
 		//print f?
 		System.out.println("display");
@@ -500,7 +587,10 @@ public class FiveInARow {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param row
+	 */
 	private void displayRow(char[]row){
 		System.out.println("*     *     *     *     *     *     *     *     *");
 		for (int col=0;col<row.length;col++){
