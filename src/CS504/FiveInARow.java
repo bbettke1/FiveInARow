@@ -2,6 +2,13 @@ package CS504;
 
 import java.util.Scanner;
 
+/**
+ * US202
+ * 
+ * @author billb
+ *
+ */
+
 public class FiveInARow {
 	
 	private static final int BOARD_SIZE 		= 8;
